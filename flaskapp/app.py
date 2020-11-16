@@ -26,8 +26,7 @@ try:
             
     @app.route("/map")
     def map():   
-            postgreSQL_select_Query = "select gps_x, gps_y from vehicle"
-            cursor.execute(postgreSQL_select_Query)
+            cursor.execute("select gps_x, gps_y from vehicle")
             location = cursor.fetchall()
             return render_template("map.html")
 
