@@ -1,0 +1,39 @@
+CREATE TABLE Driver(
+	id	SERIAL,
+	name VARCHAR(30),
+	age INT,
+	vision_quality	INT,
+	PRIMARY KEY(id));
+	
+CREATE TABLE Alertness(
+	driver_id SERIAL,
+	eye_position VARCHAR(20),
+	driver_session_time INT,
+	CONSTRAINT fk_driver_id
+      FOREIGN KEY(driver_id) 
+	  REFERENCES Driver(id)
+);
+
+CREATE TABLE Vehicle(
+	Driver_id SERIAL REFERENCES Driver(id),
+	vehicle_id INT,
+	speed INT,
+	gps_x FLOAT,
+	gps_y FLOAT,
+	time TIMESTAMP
+);
+
+CREATE TABLE Rests(
+	Driver_id SERIAL, FOREIGN KEY(Driver_id) REFERENCES Driver(id),
+	gps_x FLOAT,
+	gps_y FLOAT,
+	time_length INT
+);
+
+INSERT INTO Driver 
+VALUES 
+	(DEFAULT,'Simon', 40, 0),
+	(DEFAULT,'James', 27, 0),
+	(DEFAULT,'Robert', 19, -2);
+
+SELECT * FROM Driver;
