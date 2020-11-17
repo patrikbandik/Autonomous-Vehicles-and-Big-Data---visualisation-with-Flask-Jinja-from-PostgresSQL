@@ -3,10 +3,10 @@ from flask import Flask, request, redirect, url_for, render_template, session
 
 try:
     connection = psycopg2.connect(user="postgres",
-                                  password="olalacik1",
+                                  password="olalacik1", #change password for my 
                                   host="127.0.0.1",
-                                  port="5432",
-                                  database="av_dataprocessing_finalassignment")
+                                  port="5432",               #insert data into databse .. its empty 
+                                  database="av_dataprocessing_finalassignment") #change name of database 
 
     app = Flask(__name__)
     app.secret_key = 'patoromimatotentoprojektstojizato'
@@ -73,12 +73,3 @@ try:
 
 except (Exception, psycopg2.Error) as error:
     print("Error while connecting to PostgreSQL", error)
-"""
-finally:
-    # Closing database connection
-    if (connection):
-        cursor.close()
-        connection.close()
-        print("PostgreSQL connection is closed")
-"""
-
