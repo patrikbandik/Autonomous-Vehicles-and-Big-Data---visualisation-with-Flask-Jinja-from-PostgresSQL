@@ -3,9 +3,9 @@ from flask import Flask, request, redirect, url_for, render_template, session
 
 try:
     connection = psycopg2.connect(user="postgres",
-                                  password="olalacik1", #change password for my 
+                                  password="pw", 
                                   host="127.0.0.1",
-                                  port="5432",               #insert data into databse .. its empty 
+                                  port="5432",              
                                   database="av_dataprocessing_finalassignment") #change name of database 
 
     app = Flask(__name__)
